@@ -38,7 +38,6 @@ echo $collection->get('fuzz')->get('foo')->get(); // prints buzz
 Create collection and convert to array:
 ```php
 use mibexx\collection\Collection\Collection;
-use mibexx\collection\ComposeFile\SymfonyFile;
 use mibexx\collection\Parser\ArrayParser;
 
 $parser = new ArrayParser();
