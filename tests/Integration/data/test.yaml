@@ -1,0 +1,31 @@
+version: '2'
+services:
+  test_lb:
+    build: .files/docker/images/nginx
+    image: localdev/dev_lb
+    container_name: dev_lb
+    restart: always
+    ports:
+      - 0.0.0.0:80:80
+      - 0.0.0.0:443:443
+    networks:
+      localdev:
+        ipv4_address: 172.16.238.5
+  test_server:
+    build: .files/docker/images/webserver/70
+    image: localdev/registry_server
+    container_name: registry_server
+    restart: always
+    ports:
+      - 0.0.0.0:41:22
+    networks:
+      localdev:
+        ipv4_address: 172.16.238.41
+networks:
+  localdev:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.238.0/24
+          gateway: 172.16.238.1
