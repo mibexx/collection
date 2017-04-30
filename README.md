@@ -1,7 +1,8 @@
 Collection-Object 
 =========================
 Collections to use as objects for lists.  
-Can convert arrays to collections and collections to arrays.
+Can convert arrays to collections and collections to arrays.  
+Collections are iterable.
 
 Installation
 ------------------
