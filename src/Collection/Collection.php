@@ -15,6 +15,15 @@ class Collection implements CollectionInterface
     private $elements;
 
     /**
+     * Collection constructor.
+     */
+    public function __construct()
+    {
+        $this->elements = [];
+    }
+
+
+    /**
      * @param string $key
      * @param ElementInterface $element
      */
