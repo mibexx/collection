@@ -49,4 +49,30 @@ class IntegrationTest extends TestCase
         $newList = $parser->convertToArray($collection);
         $this->assertEquals($testList, $newList);
     }
+
+    public function testMergeCollections()
+    {
+        $listOne = [
+            'foo' => 'bar',
+            'fuzz' => [
+                'foo' => 'buzz'
+            ]
+        ];
+
+        $listTwo = [
+            'bar' => 'foo',
+            'fuzz' => [
+                'foo' => 'bozz'
+            ]
+        ];
+
+        $parser = new CollectionParser();
+        $collection = new Collection();
+        $parser->convertToCollection($listOne, $collection);
+        $parser->convertToCollection($listTwo, $collection);
+
+        $this->assertEquals('bar', $collection->get('foo')->get());
+        $this->assertEquals('foo', $collection->get('bar')->get());
+        $this->assertEquals('bozz', $collection->get('fuzz')->get('foo')->get());
+    }
 }
