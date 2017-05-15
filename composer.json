@@ -1,6 +1,6 @@
 {
   "name"             : "mibexx/collection",
-  "description"      : "Can convert yaml to collection objects and back to yaml",
+  "description"      : "Can convert array to collection objects and back to array",
   "minimum-stability": "stable",
   "license"          : "MIT",
   "authors"          : [
